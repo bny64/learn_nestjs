@@ -1,0 +1,12 @@
+https://www.myapp.com/orders //good
+https://www.myapp.com/creat-order //bad
+
+명사를 사용하는 것이 좋다.
+
+다운받은 package.json module
+@types/node : 자바스크립트 런타임에 타입을 가져온 것
+prettier : 코드를 포맷팅해주는 것
+tsc : 타입스크립트 컴파일러
+
+devDependencies : 개발에서 필요한 lib를 넣는다.
+dependencies : production에서 필요한 lib(실제 배포할 때)
