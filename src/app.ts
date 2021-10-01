@@ -13,7 +13,7 @@ const port: number = 8000;
 }); */
 app.get("/", (req: express.Request, res: express.Response) => {
   console.log(req);
-  res.send("hello world");
+  res.send("hello world!");
 });
 //app.get이 하나의 Router
 
