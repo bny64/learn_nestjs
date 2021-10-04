@@ -7,3 +7,4 @@ nodejs와 nestjs를 사용하여 프로젝트 구성
 1. main : main branch
 2. hp_pavilion : [laptop] HP pavilion
 3. legend_z : [tablet] mpgio legend z
+4. lenovo_slim3 : [laptop] LENOVO slim3
