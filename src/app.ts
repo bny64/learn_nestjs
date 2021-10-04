@@ -14,15 +14,42 @@ const data: number[] = [1, 2, 3, 4, 5];
 /* app.get("/", (req, res) => {
   res.send("hello world");
 }); */
+
+//전체적인 미들웨어로 사용할 때는 use를 사용
+/* app.use((req, res, next) => {
+  console.log(req.rawHeaders[1]);
+  next();
+}); */
+
+app.get("/", (req, res, next) => {
+  console.log(req.rawHeaders[1]);
+  next();
+});
+
+app.get(
+  "/cats/som",
+  (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.log(`this is som middleware`);
+    next();
+  }
+);
+
 app.get("/", (req: express.Request, res: express.Response) => {
-  console.log(req);
-  res.send("hello world!");
+  console.log(req.rawHeaders[1]);
+  res.send({ cats: Cat });
 });
 //app.get이 하나의 Router
 
-app.get("/data", (req: express.Request, res: express.Response) => {
-  console.log(req);
-  res.send({ cats: Cat });
+app.get("/cats/blue", (req, res, next: express.NextFunction) => {
+  res.send({ blue: Cat[0] });
+});
+
+app.get("/cats/som", (req: express.Request, res: express.Response) => {
+  res.send({ som: Cat[1] });
+});
+
+app.use((req, res, next) => {
+  res.send({ error: "404 error!" });
 });
 
 app.listen(port, () => {
