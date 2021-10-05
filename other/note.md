@@ -12,4 +12,4 @@
 
   2020.10.05
 
-- typescript type, interface에 대해 알아볼 것!
+- typescript type, interface에 대해 알아볼 것!(블로그에 정리)
