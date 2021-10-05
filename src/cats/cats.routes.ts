@@ -59,4 +59,53 @@ router.post("/cats", (req: express.Request, res: express.Response) => {
   }
 });
 
+router.patch("/cats/:id", (req: express.Request, res: express.Response) => {
+  try {
+    const params = req.params;
+    const body = req.body;
+    let result;
+
+    Cat.forEach((cat) => {
+      if (cat.id === params.id) {
+        cat = { ...cat, ...body };
+        result = cat;
+      }
+    });
+
+    res.status(200).send({
+      success: true,
+      data: {
+        cat: result,
+      },
+    });
+  } catch (error: any) {
+    res.status(400).send({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+router.delete("/cats/:id", (req: express.Request, res: express.Response) => {
+  try {
+    const params = req.params;
+    const body = req.body;
+    let result;
+
+    console.log(Cat);
+    console.log(`body.id : ${body.id}`);
+    const newCat = Cat.filter((cat) => cat.id !== body.id);
+
+    res.status(200).send({
+      success: true,
+      data: newCat,
+    });
+  } catch (error: any) {
+    res.status(400).send({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
 export default router;
