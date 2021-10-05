@@ -3,3 +3,6 @@ https://bny9164.tistory.com/48
 
 nestjs + nodejs 강의
 8, 9, 10, 11강 완료
+
+singleton 패턴
+오직 개체가 한 개만 생성되게 하는 패턴

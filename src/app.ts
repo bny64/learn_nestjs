@@ -2,43 +2,61 @@
 import * as express from "express";
 import catsRouter from "./cats/cats.routes";
 
-//const app = express();
-const app: express.Express = express();
-//app은 express의 인스턴스, app이 곧 서버역할
+class Server {
+  public app: express.Application;
+  private port: number = 8000;
 
-//const port = 8000;
-const port: number = 8000;
-
-/* app.get("/", (req, res) => {
-  res.send("hello world");
-}); */
-
-//전체적인 미들웨어로 사용할 때는 use를 사용
-/* app.use((req, res, next) => {
-  console.log(req.rawHeaders[1]);
-  next();
-}); */
-
-app.use(express.json());
-app.use(catsRouter);
-
-// * logging middleware
-app.use(
-  (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    console.log(req.rawHeaders[1]);
-    console.log(`this is logging middleware`);
-    next();
+  constructor() {
+    const app: express.Application = express();
+    this.app = app;
   }
-);
 
-// * 404 middleware
-app.use(
-  (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    console.log(`this is error middleware`);
-    res.send({ error: `404 not found error` });
+  private setRoutes() {
+    this.app.use(catsRouter);
   }
-);
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+  private setMiddleware() {
+    // * logging middleware
+    this.app.use(
+      (
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction
+      ) => {
+        console.log(req.rawHeaders[1]);
+        console.log(`this is logging middleware`);
+        next();
+      }
+    );
+
+    // * json middleware
+    this.app.use(express.json());
+    this.setRoutes();
+
+    // * 404 middleware
+    this.app.use(
+      (
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction
+      ) => {
+        console.log(`this is error middleware`);
+        res.send({ error: `404 not found error` });
+      }
+    );
+  }
+
+  public listen() {
+    this.setMiddleware();
+    this.app.listen(this.port, () => {
+      console.log(`Example app listening at http://localhost:${this.port}`);
+    });
+  }
+}
+
+function init() {
+  const server: Server = new Server();
+  server.listen();
+}
+
+init();
