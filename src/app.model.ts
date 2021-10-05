@@ -1,4 +1,4 @@
-export type CatType = {
+export interface CatType {
   id: string;
 
   name: string;
@@ -10,7 +10,7 @@ export type CatType = {
   isCute: boolean;
 
   friends: string[];
-};
+}
 
 export const Cat: CatType[] = [
   {
