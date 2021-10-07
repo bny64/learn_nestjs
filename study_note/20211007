@@ -2,3 +2,21 @@ nestjs + nodejs 강의
 - 17, 18강 완료
 - /project/.eslintrc.js : 코드 작성 문법 규칙 정의[ex) console.log 금지 등]
 - /project/.prettierrc : 코드 예쁘게 정렬(?) 규칙 정의 [ex) 쌍따옴표 금지 등]
+
+package.json
+    dependencies
+"@nestjs/common": "^8.0.0",
+"@nestjs/core": "^8.0.0",
+"@nestjs/platform-express": "^8.0.0",
+- nestjs안에서 자체적으로 동작하는 라이브러리
+"reflect-metadata": "^0.1.13",
+- @같이 데코레이터를 사용할 때 쓰는 패키지
+"rimraf": "^3.0.2",
+- 윈도우에서 리눅스의 rm -rf 이런 메서드들을 사용할 수 있게 해주는 패키지
+"rxjs": "^7.2.0"
+- 비동기 이벤트 기반 프로그래밍을 작성하기 위한 패키지
+
+nestjs/controller에 대해 공부
+https://docs.nestjs.kr/controllers
+
+
