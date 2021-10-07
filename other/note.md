@@ -20,4 +20,4 @@
 
   2021.10.07
 
-- hp_pavilion window8.1 64bit 교체
+- hp_pavilion window8.1 64bit 교체, vscode 세팅
