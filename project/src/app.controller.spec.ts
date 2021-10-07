@@ -1,3 +1,4 @@
+// * 컨트롤러를 위한 유닛 테스트
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
