@@ -16,4 +16,8 @@
 
   2021.10.06
 
-- hp_pavilion wndow8.1 32bit 교체
+- hp_pavilion window8.1 32bit 교체
+
+  2021.10.07
+
+- hp_pavilion window8.1 64bit 교체
