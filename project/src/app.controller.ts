@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 //@와 같은 데코레이터는 기능을 첨가한다고 생각하면 된다.
 @Controller('cats')
 export class AppController {
+  //nestjs에서는 클래스 내부에서 생성자로 초기화해서 사용
+  //의존성 주입 패턴
   constructor(private readonly appService: AppService) {}
 
   @Get('hello/:id')

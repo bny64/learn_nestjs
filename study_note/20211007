@@ -1,5 +1,5 @@
 nestjs + nodejs 강의
-- 17, 18강 완료
+- 17, 18, 19, 20강 완료
 - /project/.eslintrc.js : 코드 작성 문법 규칙 정의[ex) console.log 금지 등]
 - /project/.prettierrc : 코드 예쁘게 정렬(?) 규칙 정의 [ex) 쌍따옴표 금지 등]
 

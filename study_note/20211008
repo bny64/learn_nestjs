@@ -1,0 +1,11 @@
+nestjs + nodejs 강의
+- 21강 완료
+
+프로젝트가 repository안에 여러 개의 프로젝트로 구성되어 있기 때문에
+.eslintrc.js파일에서 tsconfigRootDir : __dirname 옵션을 추가해서 잡아준다.
+
+Nestjs에서 service, repository, factory, helper 등은 Provider로 취급된다.
+Provider의 주요 기능은 종속성 주입(Dependency injection)
+추가 사항
++ Custom providers
++ Optional providers
