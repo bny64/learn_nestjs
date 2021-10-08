@@ -1,9 +1,9 @@
 // * 애플리케이션의 루트 모듈
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
-import { UsersModule } from './users/users.module';
+import { LoggerMiddleware } from './logger.middleware';
 
 //app.module에서 의존성 주입
 /**
@@ -18,9 +18,15 @@ import { UsersModule } from './users/users.module';
  * app.module에서는 해당 module을 import 하는 것만으로도 해당 module의 provider를 사용할 수 있다.
  */
 @Module({
-  imports: [CatsModule, UsersModule],
+  imports: [CatsModule],
   controllers: [AppController],
   providers: [AppService],
   //provider에 등록되지 않으면(의존성 주입이 되지 않으면) 사용할 수 없다.
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    //forRoutes('cats') cats controller에 bind
+    //forRoutes('*') 전체 controller에 bind
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
