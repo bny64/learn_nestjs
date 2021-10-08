@@ -4,7 +4,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
-    tsconfigRootDir: __dirname, //루트 directory 안에 여러개의 프로젝트가 있을 경우 해당 프로젝트에서 root dir설정해줘야 한다.
+    //tsconfigRootDir: __dirname, //루트 directory 안에 여러개의 프로젝트가 있을 경우 해당 프로젝트에서 root dir설정해줘야 한다.
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint/eslint-plugin'], // 타입스크립트 문법이 들어있다.

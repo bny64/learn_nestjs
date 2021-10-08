@@ -1,5 +1,5 @@
 nestjs + nodejs 강의
-- 21, 22강 완료
+- 21, 22, 23강 완료
 
 프로젝트가 repository안에 여러 개의 프로젝트로 구성되어 있기 때문에
 .eslintrc.js파일에서 tsconfigRootDir : __dirname 옵션을 추가해서 잡아준다.
@@ -22,3 +22,5 @@ module.ts 파일
   providers: [CatsService],
   exports: [CatsService], <==
 })
+
+캡슐화란?
