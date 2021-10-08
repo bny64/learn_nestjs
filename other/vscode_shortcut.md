@@ -6,3 +6,4 @@
 6. 터미널 닫기 / 열기 : ctrl + j
 7. ctrl + shift + l : 현재 선택된 단어와 같은 단어 모두 선택
 8. ctrl + d : 현재 선택된 단어와 같은 다음 단어 선택
+9. ctrl + . : 빠른 수정 auto import 등
