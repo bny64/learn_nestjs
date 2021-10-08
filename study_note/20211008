@@ -1,5 +1,5 @@
 nestjs + nodejs 강의
-- 21, 22, 23강 완료
+- 21, 22, 23, 24, 25강 완료
 
 프로젝트가 repository안에 여러 개의 프로젝트로 구성되어 있기 때문에
 .eslintrc.js파일에서 tsconfigRootDir : __dirname 옵션을 추가해서 잡아준다.
@@ -32,3 +32,50 @@ module.ts 파일
 ∴외부 객체는 객체 내부의 구조를 얻지 못하며 객체가 노출해서 제공하는 필드와 메소드만 이용할 수 있다.
 ∴필드와 메소드를 캡슐화하여 보호하는 이유는 외부의 잘못된 사용으로 인해 객체가 손상되지 않도록 하는데 있다.
 ∴자바 언어는 캡슐화된 멤버를 노출시킬 것인지 숨길 것인지를 결정하기 위해 접근 제한자(Access Modifier)를 사용한다.
+
+nest 로직 수행 단계
+0. 요청
+
+1. middleware (미들웨어) 
+
+2. guards (가드)
+
+    - 주로 permission (인증) 처리를 할 때 사용합니다.
+
+3. pre-interceptors (인터셉터) 
+
+    - 주로 post-interceptor를 위한 변수 선언, 함수 실행을 합니다. (선택)
+
+4. Pipes (파이프)
+
+    - 변환(요청 바디를 원하는 형식으로 변환), 유효성 검사를 합니다.
+
+5. Controller (컨트롤러)
+
+    - 라우터 역할을 수행합니다. (서비스 로직의 결과를 응답합니다.)
+
+6. Service (서비스 ; 컨트롤러 안에 정의되어 있다면)
+
+    - 해당 요청에 대한 핵심 로직이 수행됩니다.
+
+7. post-interceptor (인터셉터) 
+
+    - 주로 pre-interceptor 로직을 가지고 응답한 데이터를 가공하거나 전체 로직의 속도를 측정합니다. 최종적으로 성공적인 응답 데이터를 보냅니다.
+
+8. exception filters (필터)
+
+    - 예외 처리를 담당합니다. 에러 메세지를 원하는 형태로 가공해서 응답합니다.
+
+9. 응답
+
+이렇게 공통된 역할이 있는 레이어를 나눔으로써 로직을 레고처럼 맞춰서 사용할 수 있습니다. (AOP)
+
+typescript type-assertion(as)
+
+const error = exception.getResponse() as
+      | string
+      | { error: string; statusCode: number; message: string | string[] };
+
+error로 받는 값이 string일 경우나
+                    object일 경우 해당하는 object에서 error, statusCode, message 값만 사용한다는 뜻.
+
