@@ -22,3 +22,7 @@
 
 - hp_pavilion window8.1 64bit 교체, vscode 세팅
 - 현재 project practice_proejct(초반 강의 연습용 프로젝트), project(nestjs 설치후 본격 강의 프로젝트) 폴더 나누고 .gitignore 재설정
+
+  2021.10.09
+
+- hp_pavilon lubuntu 설치
