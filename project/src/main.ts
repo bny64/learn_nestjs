@@ -3,9 +3,11 @@ import { HttpExceptionFilter } from 'src/http-exception.filter';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
+const port: number = 8000;
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalFilters(new HttpExceptionFilter());
-  await app.listen(8000);
+  await app.listen(port);
 }
 bootstrap();
