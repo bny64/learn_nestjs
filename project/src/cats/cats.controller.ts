@@ -34,7 +34,6 @@ export class CatsController {
   @Post()
   createCat() {
     console.log('hello');
-    console.log('create Cat');
     return 'create cat';
   }
 
