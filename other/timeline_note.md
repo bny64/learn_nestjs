@@ -26,3 +26,7 @@
   2021.10.09
 
 - hp_pavilon lubuntu 설치
+
+  2021.10.10
+
+- hp_pavilion lubuntu 개발 환경 셋팅 완료
