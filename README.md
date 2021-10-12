@@ -25,5 +25,5 @@ nodejs와 nestjs를 사용하여 프로젝트 구성
 git branch -r [branch 목록 확인]
 git checkout -b '생성할 branch명' '원격 branch명'
 ex)
-git checkout -r
+git branch -r
 git checkout -b legend_z origin/legend_z
