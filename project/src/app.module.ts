@@ -3,7 +3,7 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
-import { LoggerMiddleware } from './logger.middleware';
+import { LoggerMiddleware } from './common/middlewares/logger.middleware';
 
 //app.module에서 의존성 주입
 /**

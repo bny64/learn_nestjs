@@ -29,4 +29,7 @@
 
   2021.10.10
 
-- hp_pavilion lubuntu 개발 환경 셋팅 완료
+- hp_pavilion lubuntu 개발 환경 셋팅 
+
+  2021.10.12
+  nestjs lifecycle 잘 숙지할 것. https://docs.nestjs.kr/faq/request-lifecycle
