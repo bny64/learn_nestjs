@@ -23,35 +23,27 @@ export class CatsController {
   constructor(private readonly catsServce: CatsService) {}
 
   @Get()
-  //@UseFilters(HttpExceptionFilter) //해당 서비스에서 발생한 exception은 useFilter에서 적용한 filter로 넘어간다.
-  getAllCat() {
-    console.log('hello controller!');
-    return {cats:'get all cat api'};
-  }
-
-  @Get(':id')
-  getOneCat(@Param('id', ParseIntPipe, PositiveIntPipe) param: number) {
-    //console.log(param);
-    return 'one cat';
+  getCurrentCat() {
+    return 'current cat';
   }
 
   @Post()
-  createCat() {
-    return 'create cat';
+  async signUp() {
+    return 'signup';
   }
 
-  @Put(':id')
-  updateCat() {
-    return 'update cat';
+  @Post('login')
+  logIn() {
+    return 'login';
   }
 
-  @Patch(':id')
-  updateParticalCat() {
-    return;
+  @Post('logout')
+  logOut() {
+    return 'logout';
   }
 
-  @Delete(':id')
-  deleteCat() {
-    return 'delete cat';
+  @Post('upload/cats')
+  uploadCatImg() {
+    return 'uploadImg';
   }
 }

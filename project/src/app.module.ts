@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
 import { LoggerMiddleware } from './common/middlewares/logger.middleware';
+import * as mongoose from 'mongoose';
 
 //app.module에서 의존성 주입
 /**
@@ -40,9 +41,11 @@ import { LoggerMiddleware } from './common/middlewares/logger.middleware';
   //provider에 등록되지 않으면(의존성 주입이 되지 않으면) 사용할 수 없다.
 })
 export class AppModule implements NestModule {
+  private readonly isDev: boolean = process.env.MODE === 'dev' ? true : false;
   configure(consumer: MiddlewareConsumer) {
     //forRoutes('cats') cats controller에 bind
     //forRoutes('*') 전체 controller에 bind
     consumer.apply(LoggerMiddleware).forRoutes('*');
+    mongoose.set('debug', this.isDev);
   }
 }
