@@ -1,3 +1,8 @@
 get http://localhost:8000/cats/-2
 ###
 POST http://localhost:8000/cats
+content-type: application/json
+
+{
+    "name": "sample2"
+}
