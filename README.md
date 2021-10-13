@@ -14,6 +14,9 @@ nodejs와 nestjs를 사용하여 프로젝트 구성
 8. auto import : 자동으로 패키지 import 시켜줌.
 9. wakatime : 내가 하고있는 작업을 모두 기록해줌. api-key 필요.
 
+nodejs global install
+$ npm i -g tsc-watch typescript @nestjs/cli
+
 -BRANCH
 
 1. main : main branch

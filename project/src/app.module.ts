@@ -1,5 +1,7 @@
 // * 애플리케이션의 루트 모듈
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
@@ -18,7 +20,21 @@ import { LoggerMiddleware } from './common/middlewares/logger.middleware';
  * app.module에서는 해당 module을 import 하는 것만으로도 해당 module의 provider를 사용할 수 있다.
  */
 @Module({
-  imports: [CatsModule],
+  //app.module에서 각각 모듈들을 import해서 사용함.
+  imports: [
+    ConfigModule.forRoot(), //nestjs 환경변수 사용(내부적으로 dotenv package 사용함)
+    MongooseModule.forRoot(
+      process.env.MONGODB_URI /* , {
+      //mongodb 연결
+      //mongoose 6버전부터 depreciate
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    } */,
+    ),
+    CatsModule,
+  ], //db url을 사용
   controllers: [AppController],
   providers: [AppService],
   //provider에 등록되지 않으면(의존성 주입이 되지 않으면) 사용할 수 없다.
