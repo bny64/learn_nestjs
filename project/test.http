@@ -4,5 +4,15 @@ POST http://localhost:8000/cats
 content-type: application/json
 
 {
-    "name": "sample2"
+    "email":"bny@naver.com",
+    "name":"cat",
+    "password":"123"
+}
+###
+POST http://localhost:8000/cats/login
+content-type: application/json
+
+{
+    "email":"bny@naver.com",
+    "password":"123"
 }

@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
 import { LoggerMiddleware } from './common/middlewares/logger.middleware';
+import { AuthModule } from './auth/auth.module';
 import * as mongoose from 'mongoose';
 
 //app.module에서 의존성 주입
@@ -35,6 +36,7 @@ import * as mongoose from 'mongoose';
     } */,
     ),
     CatsModule,
+    AuthModule,
   ], //db url을 사용
   controllers: [AppController],
   providers: [AppService],
