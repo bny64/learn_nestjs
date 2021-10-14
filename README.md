@@ -1,4 +1,4 @@
-# nestJs_on_nodejs_project
+# learn_nestjs
 
 nodejs와 nestjs를 사용하여 프로젝트 구성
 
