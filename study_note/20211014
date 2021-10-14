@@ -1,0 +1,4 @@
+nestjs
+custom decorator(ex: Body, Param etc...) : https://docs.nestjs.kr/custom-decorators
+api docs creation : https://docs.nestjs.kr/openapi/introduction
+usage of mongoose : https://docs.nestjs.kr/techniques/mongodb
