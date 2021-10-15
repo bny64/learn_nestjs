@@ -3,8 +3,12 @@ import * as bcrypt from 'bcrypt';
 import { CatRequestDto } from './dto/cats.request.dto';
 import { CatsRepository } from './cat.repository';
 
-@Injectable() //@Injectable이 들어간 건 provider라는 의미
+// CLI를 사용하여 서비스 생성은 $ nest g service '서비스명' => '서비스명.service.ts'
+// @Injectable이 들어간 건 provider라는 의미
+// @Injectable은 Nest IoC 컨테이너에서 관리할 수 있는 클래스임을 선언하는 메타데이터를 첨부
+@Injectable()
 export class CatsService {
+  //service는 클래스 생성자(constructor)를 통해 주입
   constructor(private readonly catsRepository: CatsRepository) {}
 
   async signUp(body: CatRequestDto) {

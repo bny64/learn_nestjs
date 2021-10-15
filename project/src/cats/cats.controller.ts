@@ -15,6 +15,7 @@ import { ReadOnlyCatDto } from './dto/cat.dto';
 import { AuthService } from 'src/auth/auth.service';
 import { LoginRequestDto } from 'src/auth/dto/login.requestDto';
 
+//CLI를 사용하여 $ nest g controller '컨트롤러명'으로 컨트롤러를 생성할 수 있다.
 @Controller('cats')
 @UseInterceptors(SuccessInterceptor)
 @UseFilters(HttpExceptionFilter) //class 전체에서도 UseFilters 적용 가능하다.
@@ -26,8 +27,10 @@ export class CatsController {
 
   @ApiOperation({ summary: '현재 고양이 가져오기' }) //REST API DOCS만들 때 사용한다.
   @Get()
+  //핸들러 수준에서 @HttpCode(...) 데코레이터를 추가하여 이 동작을 쉽게 변경할 수 있습니다
   getCurrentCat() {
     //service의 return값을 받고 return값이 모듈로 들어가게 되고 모듈이 nestFactory에 들어가게 되서 자동으로 client로 return
+    //요청 핸들러가 자바스크립트 객체 또는 배열을 반환할 때 자동으로 JSON으로 직렬화됩니다.
     return 'current cat';
   }
 
