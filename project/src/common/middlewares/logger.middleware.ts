@@ -2,6 +2,7 @@ import { Injectable, Logger, NestMiddleware } from '@nestjs/common';
 import { NextFunction, Request, Response } from 'express';
 
 @Injectable()
+//middleware는 NestMiddleware의 interface를 구현해야 한다.
 export class LoggerMiddleware implements NestMiddleware {
   private logger = new Logger('HTTP');
 

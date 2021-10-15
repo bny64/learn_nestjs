@@ -24,7 +24,7 @@ import { CatCurrentDto } from './dto/cats.current.dto';
 //CLI를 사용하여 $ nest g controller '컨트롤러명'으로 컨트롤러를 생성할 수 있다.
 @Controller('cats')
 @UseInterceptors(SuccessInterceptor)
-@UseFilters(HttpExceptionFilter) //class 전체에서도 UseFilters 적용 가능하다.
+//@UseFilters(HttpExceptionFilter) //class 전체에서도 UseFilters 적용 가능하다.
 export class CatsController {
   constructor(
     private readonly catsService: CatsService,
