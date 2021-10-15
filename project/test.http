@@ -16,3 +16,6 @@ content-type: application/json
     "email":"bny@naver.com",
     "password":"123"
 }
+###
+GET http://localhost:8000/cats/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJueUBuYXZlci5jb20iLCJzdWIiOiI2MTY3ZWNiZTA2ZjFjYWZhN2UwZDJiMTAiLCJpYXQiOjE2MzQyNzg5NjksImV4cCI6MTY2NTgzNjU2OX0.MgvOp9N4dt0RgbUtx-FQI2-WjDQDbRnq1ysybK18UdE
