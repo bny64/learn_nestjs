@@ -8,11 +8,12 @@ import { JwtStrategy } from './jwt/jwt.strategy';
 @Module({
   imports: [
     PassportModule.register({ defaultStrategy: 'jwt', session: false }),
+    //Jwt를 만들어주는 함수
     JwtModule.register({
       secret: 'secret',
       signOptions: { expiresIn: '1y' },
     }),
-    forwardRef(() => CatsModule),
+    forwardRef(() => CatsModule), //순환모듈 : 서로 호출하는 모듈들
   ],
   providers: [AuthService, JwtStrategy],
   exports: [AuthService],
