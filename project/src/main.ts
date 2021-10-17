@@ -4,6 +4,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
+import * as expressBasicAuth from 'express-basic-auth';
 
 async function bootstrap() {
   //실제로 기본 플랫폼 API에 액세스하려는 경우를 제외하고는 아래와 같이 유형을 지정할 필요는 없습니다.
@@ -12,6 +13,16 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe()); //class-validator 모듈을 사용하기 위해 전역pipe로 입력
   app.useGlobalFilters(new HttpExceptionFilter());
+
+  app.use(
+    ['/docs', '/docs-json'],
+    expressBasicAuth({
+      challenge: true,
+      users: {
+        [process.env.SWAGGER_USER]: process.env.SWAGGER_PASSWORD,
+      },
+    }),
+  );
 
   //API 문서 만들 때 추가
   //swagger module

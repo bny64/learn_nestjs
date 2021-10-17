@@ -11,7 +11,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false, //jwt 만료기간
-      secretOrKey: 'secret', //jwt 모듈을 만들 때의 secret과 일치시켜줘야 한다.
+      secretOrKey: process.env.JWT_SECRET, //jwt 모듈을 만들 때의 secret과 일치시켜줘야 한다.
     });
   }
 
