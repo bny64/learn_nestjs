@@ -39,5 +39,9 @@ export class CatsService {
     return newCat;
   }
 
-  hiCatServiceProduct() {}
+  async getAllcat() {
+    const allCat = await this.catsRepository.findAll();
+    const readOnlyCats = allCat.map((cat) => cat.readOnlyData);
+    return readOnlyCats;
+  }
 }

@@ -5,8 +5,8 @@ content-type: application/json
 
 {
     "email":"bny@naver.com",
-    "name":"cat",
-    "password":"123"
+    "name":"cat1",
+    "password":"1234"
 }
 ###
 POST http://localhost:8000/cats/login
@@ -14,7 +14,7 @@ content-type: application/json
 
 {
     "email":"bny@naver.com",
-    "password":"123"
+    "password":"1234"
 }
 ###
 GET http://localhost:8000/cats
@@ -31,4 +31,6 @@ Content-Type: image/png
 
 < C:/Users/NAMYUL/Downloads/react.png
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+###
+GET http://localhost:8000/cats/all
 
