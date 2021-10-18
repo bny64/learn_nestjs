@@ -1,0 +1,12 @@
+nestjs - passport-jwt
+auth.module.ts => AuthModule 등록.
+auth.module.ts => 
+    PassportModule 등록: register 함수에 strategy, session 옵션 입력
+    JwtModule 등록 : 사용할 secret과 signOptions 등록
+    외부에서 AuthService를 사용하기 때문에 AuthService exports 처리
+    CatsModule과 AuthModule은 서로 순환참조하기 때문에 forwardRef함수로 감싸준다.
+auth.service.ts =>
+    jwtLoginIn : cats.controller.ts에서 로그인 할 때 사용.
+                 로그인할 때 email, password를 받아 DB에서 해당 cats를 검색 후 bcrypt의 함수를 사용해 비밀번호 체크
+                 정상적으로 체크가 되었으면 payload에 필요 정보를 입력하고 jwtService.sign()함수 호출 -> auth.module.ts에서 JwtModule에서 등록한 옵션 값으로 sign처리. access-token 발급
+

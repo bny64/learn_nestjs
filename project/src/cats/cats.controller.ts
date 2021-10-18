@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Post,
+  Req,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -16,6 +17,7 @@ import { LoginRequestDto } from 'src/auth/dto/login.requestDto';
 import { JwtAuthGuard } from 'src/auth/jwt/jwt.guard';
 import { CurrentUser } from 'src/common/decorators/user.decorator';
 import { CatCurrentDto } from './dto/cats.current.dto';
+import { Request } from 'express';
 
 //CLI를 사용하여 $ nest g controller '컨트롤러명'으로 컨트롤러를 생성할 수 있다.
 @Controller('cats')
@@ -31,9 +33,10 @@ export class CatsController {
   @UseGuards(JwtAuthGuard)
   @Get()
   //핸들러 수준에서 @HttpCode(...) 데코레이터를 추가하여 이 동작을 쉽게 변경할 수 있습니다
-  getCurrentCat(@CurrentUser() cat: CatCurrentDto) {
+  getCurrentCat(@Req() req: Request, @CurrentUser() cat: CatCurrentDto) {
     //service의 return값을 받고 return값이 모듈로 들어가게 되고 모듈이 nestFactory에 들어가게 되서 자동으로 client로 return
     //요청 핸들러가 자바스크립트 객체 또는 배열을 반환할 때 자동으로 JSON으로 직렬화됩니다.
+    console.log(req.user);
     return cat.readOnlyData;
   }
 
