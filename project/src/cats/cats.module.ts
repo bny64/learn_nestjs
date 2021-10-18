@@ -1,13 +1,17 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { MulterModule } from '@nestjs/platform-express';
 import { AuthModule } from 'src/auth/auth.module';
-import { CatsRepository } from './cat.repository';
-import { CatsController } from './cats.controller';
+import { CatsRepository } from './cats.repository';
+import { CatsController } from './controller/cats.controller';
 import { Cat, CatSchema } from './cats.schema';
-import { CatsService } from './cats.service';
+import { CatsService } from './service/cats.service';
 
 @Module({
   imports: [
+    MulterModule.register({
+      dest: './upload', //저장되는 경로
+    }),
     MongooseModule.forFeature([{ name: Cat.name, schema: CatSchema }]),
     forwardRef(() => AuthModule), //서로간에 의존할 때 발생하는 순환 종속성을 해결하기 위한 방법
   ],

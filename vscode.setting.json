@@ -1,0 +1,19 @@
+{
+  "workbench.colorTheme": "greenery",
+  "workbench.iconTheme": "material-icon-theme",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "editor.fontSize": 16,
+  "editor.fontFamily": "D2Coding ligature, Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "bracket-pair-colorizer-2.colors": [
+    "#d95668",
+    "#d3a074",
+    "#e0e16a",
+    "#71e16a",
+    "#5b78c9",
+    "#ab07f7"
+  ],
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

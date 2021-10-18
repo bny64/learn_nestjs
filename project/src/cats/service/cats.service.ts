@@ -1,7 +1,8 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { CatRequestDto } from './dto/cats.request.dto';
-import { CatsRepository } from './cat.repository';
+import { CatRequestDto } from '../dto/cats.request.dto';
+import { CatsRepository } from '../cats.repository';
+import { Cat } from '../cats.schema';
 
 // CLI를 사용하여 서비스 생성은 $ nest g service '서비스명' => '서비스명.service.ts'
 // @Injectable이 들어간 건 provider라는 의미
@@ -27,6 +28,15 @@ export class CatsService {
     });
 
     return cat.readOnlyData;
+  }
+
+  async uploadImg(cat: Cat, files: Express.Multer.File[]) {
+    const fileName = `cats/${files[0].filename}`;
+
+    console.log(fileName);
+    const newCat = this.catsRepository.findByIdAndUpdateImg(cat.id, fileName);
+    console.log(newCat);
+    return newCat;
   }
 
   hiCatServiceProduct() {}

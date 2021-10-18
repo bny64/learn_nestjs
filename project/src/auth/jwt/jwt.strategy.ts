@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { CatsRepository } from 'src/cats/cat.repository';
+import { CatsRepository } from 'src/cats/cats.repository';
 import { Payload } from './jwt.payload';
 
 //passport stategy는 인증할 때 사용한다.

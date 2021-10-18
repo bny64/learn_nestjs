@@ -5,11 +5,13 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
 import * as expressBasicAuth from 'express-basic-auth';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import * as path from 'path';
 
 async function bootstrap() {
   //실제로 기본 플랫폼 API에 액세스하려는 경우를 제외하고는 아래와 같이 유형을 지정할 필요는 없습니다.
   // const app = await NestFactory<NestPexressApplication>(AppModule);
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   app.useGlobalPipes(new ValidationPipe()); //class-validator 모듈을 사용하기 위해 전역pipe로 입력
   app.useGlobalFilters(new HttpExceptionFilter());
@@ -23,6 +25,12 @@ async function bootstrap() {
       },
     }),
   );
+
+  //  root path/common/uploads 경로에 접근하는 url은 prefix인 media를 넣어서 접근하게 한다.
+  //http://localhost:8000/media/cats/app.png => 실제 경로는 rootPath/cats/app.png
+  app.useStaticAssets(path.join(__dirname, './common', 'uploads'), {
+    prefix: '/media',
+  });
 
   //API 문서 만들 때 추가
   //swagger module
