@@ -18,5 +18,17 @@ content-type: application/json
 }
 ###
 GET http://localhost:8000/cats
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJueUBuYXZlci5jb20iLCJzdWIiOiI2MTY3ZWNiZTA2ZjFjYWZhN2UwZDJiMTAiLCJpYXQiOjE2MzQ1MTk0NjcsImV4cCI6MTY2NjA3NzA2N30.kZxpaB4ceKE4c-sndpWg7C2h053tnsAD1U0kCGBn0AQ
-###
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJueUBuYXZlci5jb20iLCJzdWIiOiI2MTY3ZWNiZTA2ZjFjYWZhN2UwZDJiMTAiLCJpYXQiOjE2MzQ1Mzc4OTksImV4cCI6MTY2NjA5NTQ5OX0.wpqFNMWiEwcjRM_5nQt04jtL0gmhM_XAOAiqc51sVsA
+
+### file upload
+POST http://localhost:8000/cats/upload
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJueUBuYXZlci5jb20iLCJzdWIiOiI2MTY3ZWNiZTA2ZjFjYWZhN2UwZDJiMTAiLCJpYXQiOjE2MzQ1Mzc4OTksImV4cCI6MTY2NjA5NTQ5OX0.wpqFNMWiEwcjRM_5nQt04jtL0gmhM_XAOAiqc51sVsA
+content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="react.png"
+Content-Type: image/png
+
+< C:/Users/NAMYUL/Downloads/react.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
