@@ -34,3 +34,11 @@ Content-Type: image/png
 ###
 GET http://localhost:8000/cats/all
 
+###
+POST http://localhost:8000/comments/jdkkdkdkdk
+content-type: application/json
+
+{
+    "author":"11111",
+    "contents":"1234"
+}
