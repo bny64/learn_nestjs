@@ -1,6 +1,6 @@
 import { HttpException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model, Mongoose, Types } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { CommentsSChema } from 'src/comments/comments.schema';
 import { Cat } from './cats.schema';
 import { CatRequestDto } from './dto/cats.request.dto';

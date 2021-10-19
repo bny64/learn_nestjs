@@ -10,7 +10,7 @@ export class CommentsController {
   @ApiOperation({
     summary: '모든 고양이 프로필에 적힌 댓글 가져오기',
   })
-  @Get('')
+  @Get()
   async getAllComments() {
     return this.commentsService.getAllComments();
   }

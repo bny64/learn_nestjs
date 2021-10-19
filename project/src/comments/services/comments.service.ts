@@ -2,6 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CatsRepository } from 'src/cats/cats.repository';
+import { CommentsRepository } from '../comments.repository';
 import { Comments } from '../comments.schema';
 import { CommentsCreateDto } from '../dto/comments.create.dto';
 
@@ -10,15 +11,11 @@ export class CommentsService {
   constructor(
     @InjectModel(Comments.name) private readonly commentsModel: Model<Comments>,
     private readonly catsRepository: CatsRepository,
+    private readonly commentsRepository: CommentsRepository,
   ) {}
 
   async getAllComments() {
-    try {
-      const comments = await this.commentsModel.find();
-      return comments;
-    } catch (err) {
-      throw new BadRequestException(err.message);
-    }
+    return this.commentsRepository.getAllComments();
   }
 
   async createComment(id: string, commentData: CommentsCreateDto) {
@@ -45,7 +42,7 @@ export class CommentsService {
 
   async plusLike(id: string) {
     try {
-      const comment = await this.commentsModel.findById(id);
+      const comment = await this.commentsRepository.getCommentById(id);
       comment.likeCount += 1;
       return await comment.save();
     } catch (err) {}
