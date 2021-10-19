@@ -13,6 +13,7 @@ nodejs와 nestjs를 사용하여 프로젝트 구성
 7. git graph : Git commit 목록을 그래프화 시켜줌.
 8. auto import : 자동으로 패키지 import 시켜줌.
 9. wakatime : 내가 하고있는 작업을 모두 기록해줌. api-key 필요.
+10. Bracket Pair Colorize2 : 괄호에 따른 색상 변경
 
 nodejs global install
 $ npm i -g tsc-watch typescript @nestjs/cli
@@ -24,7 +25,7 @@ $ npm i -g tsc-watch typescript @nestjs/cli
 3. legend_z : [tablet] mpgio legend z
 4. lenovo_slim3 : [laptop] LENOVO slim3
 
-※branch checkout 받을 떄
+※branch checkout 받을 때
 git branch -r [branch 목록 확인]
 git checkout -b '생성할 branch명' '원격 branch명'
 ex)
