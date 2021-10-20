@@ -2,6 +2,7 @@ import { Prop, Schema, SchemaFactory, SchemaOptions } from '@nestjs/mongoose';
 import { IsNotEmpty, IsString } from 'class-validator';
 import { Types } from 'mongoose';
 import { Socket as SocketModel } from './sockets.model';
+import { Document } from 'mongoose';
 
 const options: SchemaOptions = {
   collection: 'chattings', //설정하지 않으면 mongoose에서 class 이름을 소문자로 변경 후 s를 붙여서 collection명을 만든다.
