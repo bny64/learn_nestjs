@@ -1,3 +1,9 @@
 socket 프로그래밍
 emit : 보내는 것
 on : 받는 것
+
+nestjs - gateways
+Lifecycle hooks
+1. OnGatewayInit : afterInit()메소드를 강제로 구현합니다. 라이브러리별 서버 인스턴스를 인수로 사용합니다(및 필요한 경우 나머지를 퍼뜨립니다).
+2. OnGateWayConnection : handleConnection() 메서드를 강제로 구현합니다. 라이브러리 특정 클라이언트 소켓 인스턴스를 인수로 사용합니다.
+3. OnGatewayDisconnect : an argument. handleDisconnect() 메서드를 강제로 구현합니다. 라이브러리 특정 클라이언트 소켓 인스턴스를 인수로 사용합니다.

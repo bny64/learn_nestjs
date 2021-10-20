@@ -1,4 +1,4 @@
-const socket = io('/');
+const socket = io('/chattings');
 
 const getElementById = (id) => document.getElementById(id) || null;
 
@@ -6,16 +6,24 @@ const helloStrangerElement = getElementById('hello_stranger');
 const chattingBoxElement = getElementById('chatting_box');
 const formElement = getElementById('chat_form');
 
+//* global socket handler
+socket.on('user_connected', (username) => {
+  console.log(`${username} connected`);
+});
+
+const drawHelloStranger = (username) =>
+  (helloStrangerElement.innerText = `hello ${username} Stranger :)`);
+
 function helloUser() {
   const username = prompt('What is your name?');
-  console.log('hello user');
+
   socket.emit('new_user', username, (data) => {
-    console.log(`return data : ${data}`);
+    drawHelloStranger(data);
   });
-  /* socket.on('hello_user', (data) => {
-    console.log(`scripts.js : socket.on => ${data}`);
-  }); */
-  //console.log(username);
+
+  socket.on('hello_user', (data) => {
+    console.log(data);
+  });
 }
 
 function init() {
