@@ -2,7 +2,8 @@
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "tsc-watch --onSuccess \"node dist/app.js\""
+    "start": "tsc-watch --onSuccess \"node dist/app.js\"",
+    "test": "tsc-watch --allowJs src/test.ts --onSuccess \"node ./src/test.js\""
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
