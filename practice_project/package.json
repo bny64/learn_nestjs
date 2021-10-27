@@ -2,7 +2,7 @@
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",
-    "start:dev": "tsc-watch --onSuccess \"node dist_test2/test.js\"",
+    "start:dev": "tsc-watch --onSuccess \"node test_dist/test.js\"",
     "start": "node dist/app.js"
   },
   "devDependencies": {
