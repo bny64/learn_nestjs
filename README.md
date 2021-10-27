@@ -31,3 +31,6 @@ git checkout -b '생성할 branch명' '원격 branch명'
 ex)
 git branch -r
 git checkout -b legend_z origin/legend_z
+
+GIT COMMIT MESSAGE FORM
+author : namyul, message : ""

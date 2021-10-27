@@ -1,3 +1,5 @@
 "use strict";
-console.log("hello");
+function isPerson(arg) {
+    return arg.name !== undefined;
+}
 //# sourceMappingURL=test.js.map
