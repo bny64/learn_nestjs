@@ -8,49 +8,42 @@
   </head>
   <body>
     <div id="app">
-      <p>{{num}}</p>
-      <app-header v-on:pass="logText"></app-header>
-      <app-content v-on:increase="increaseNumber"></app-content>
+      <app-header v-bind:propsdata="num"></app-header>
+      <app-content v-on:pass="deliverNum"></app-content>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
       var appHeader = {
-        template: "<button v-on:click='passEvent'>click me</button>",
-        methods: {
-          passEvent: function () {
-            this.$emit("pass");
-          },
-        },
+        template: "<div>header</div>",
+        props: ["propsdata"],
       };
 
       var appContent = {
-        template: "<button v-on:click='addNumber'>add</button>",
+        template:
+          "<div>content<button v-on:click='passNum'>pass</button></div>",
         methods: {
-          addNumber: function () {
-            this.num++;
-            this.$emit("increase");
+          passNum: function () {
+            this.$emit("pass", 10);
           },
         },
       };
 
       new Vue({
         el: "#app",
+        data: {
+          str: "hi",
+        },
         components: {
           "app-header": appHeader,
           "app-content": appContent,
         },
-        methods: {
-          logText: function () {
-            console.log("hi");
-          },
-          increaseNumber: function () {
-            this.num++;
-            console.log(this.num);
-          },
-        },
         data: {
-          num: 10,
+          num: 0,
+        },
+        methods: {
+          deliverNum: function (value) {
+            this.num = value;
+          },
         },
       });
     </script>
