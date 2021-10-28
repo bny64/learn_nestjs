@@ -33,4 +33,4 @@ git branch -r
 git checkout -b legend_z origin/legend_z
 
 GIT COMMIT MESSAGE FORM
-author : namyul, message : ""
+author : namyul, message :
