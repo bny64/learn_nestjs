@@ -1,46 +1,23 @@
 <template>
-  <form v-on:submit.prevent="submitForm">
+  <div>
     <div>
-      <label for="username">id : </label>
-      <input type="text" id="username" v-model="username" />
+      <v-for></v-for>
+      <array-change></array-change>
+      <event-handler></event-handler>
     </div>
-    <div>
-      <label for="password">pwd : </label>
-      <input type="password" id="password" v-model="password" />
-    </div>
-    <button type="submit">login</button>
-  </form>
+  </div>
 </template>
 
 <script>
-import axios from "axios";
+import VFor from "./element/VFor.vue";
+import ArrayChange from "./element/ArrayChange.vue";
+import EventHandler from "./element/EventHandler.vue";
 
 export default {
-  data: function () {
-    return {
-      username: "",
-      password: "",
-    };
-  },
-  methods: {
-    submitForm: function () {
-      //event.preventDefault();
-      this.$emit("eventNm", this.username, this.password);
-
-      let url = "https://jsonplaceholder.typicode.com/users";
-      const data = {
-        username: this.username,
-        password: this.password,
-      };
-      axios
-        .post(url, data)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+  components: {
+    VFor,
+    ArrayChange,
+    EventHandler,
   },
 };
 </script>

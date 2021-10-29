@@ -1,8 +1,8 @@
 {
   "workbench.colorTheme": "greenery",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-icons",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "editor.fontSize": 16,
+  "editor.fontSize": 15,
   "editor.fontFamily": "D2Coding ligature, Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "bracket-pair-colorizer-2.colors": [
@@ -14,6 +14,9 @@
     "#ab07f7"
   ],
   "security.workspace.trust.untrustedFiles": "open",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "C:/Program Files/Naver/Naver Whale/Application/whale.exe",
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
+  "git.confirmSync": false
 }
