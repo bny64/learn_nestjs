@@ -1,16 +1,20 @@
 <template>
-  <div>
-    <div>
-      <h2>NonProp</h2>
-      <div class="date-picker">
-        <input type="datetime" @change="showChange" />
-      </div>
-    </div>
+  <div class="date-picker">
+    <input type="datetime" v-bind="$attrs" />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    console.log(this.$attrs);
+  },
+  methods: {
+    changeEvt: function () {
+      this.$emit("change1");
+    },
+  },
+};
 </script>
 
 <style></style>

@@ -10,6 +10,7 @@
         :typeCheckData2="typeCheckData2"
       ></type-check>
       <non-prop data-status="activated"></non-prop>
+      <custom-event @sending-start="started" />
     </div>
   </div>
 </template>
@@ -21,6 +22,7 @@ import EventHandler from "./element/EventHandler.vue";
 import PropsBind from "./element/PropsBind.vue";
 import TypeCheck from "./element/TypeCheck.vue";
 import NonProp from "./element/NonProp.vue";
+import CustomEvent from "./element/CustomEvent.vue";
 
 export default {
   components: {
@@ -30,6 +32,18 @@ export default {
     PropsBind,
     TypeCheck,
     NonProp,
+    CustomEvent,
+  },
+  emits: {
+    "sending-start"(payload) {
+      if (payload.param) {
+        console.log("OK emits");
+        return true;
+      } else {
+        console.warn("no value");
+        return false;
+      }
+    },
   },
   data() {
     return {
@@ -42,6 +56,11 @@ export default {
       typeCheckData1: 1000,
       typeCheckData2: "string",
     };
+  },
+  methods: {
+    started() {
+      console.log(`App.vue : started`);
+    },
   },
 };
 </script>
