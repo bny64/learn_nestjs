@@ -11,6 +11,7 @@
       ></type-check>
       <non-prop data-status="activated"></non-prop>
       <custom-event @sending-start="started" />
+      <test-vue-model></test-vue-model>
     </div>
   </div>
 </template>
@@ -23,6 +24,7 @@ import PropsBind from "./element/PropsBind.vue";
 import TypeCheck from "./element/TypeCheck.vue";
 import NonProp from "./element/NonProp.vue";
 import CustomEvent from "./element/CustomEvent.vue";
+import TestVueModel from "./element/TestVueModel.vue";
 
 export default {
   components: {
@@ -33,6 +35,7 @@ export default {
     TypeCheck,
     NonProp,
     CustomEvent,
+    TestVueModel,
   },
   emits: {
     "sending-start"(payload) {
